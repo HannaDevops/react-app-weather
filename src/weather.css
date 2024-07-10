@@ -1,0 +1,36 @@
+
+  .weather {
+    background-color: rgb(224, 222, 222);;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 25px 25px 40px 0px rgba(0,0,0,0.33);
+    color: #170f0f;
+   
+    font-family: arial, sans-serif;
+    min-width: 500px;
+    min-height: 250px;
+    
+  }
+     
+      
+      .weather h1 {
+        font-size: 24px;
+        font-weight: 100;
+         
+        line-height: 29px;
+      }
+      
+      .weather ul {
+         
+        padding: 0;
+      }
+      
+      .weather li {
+        font-size: 16px;
+        font-weight: 100;
+        line-height: 19px;
+        list-style: none;
+      }
+      .weather row{
+         margin: 0;
+      }

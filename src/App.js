@@ -6,8 +6,8 @@ import Footerm from './footerm';
 export default function App() {
   return (
     <div className="App">
-       <div className="cotainer">
-          <Weather />
+       <div className="container">
+          <Weather defcity="glasgow"/>
         <footer>
           <Footerm />
         </footer>  
