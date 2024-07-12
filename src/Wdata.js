@@ -6,17 +6,8 @@ export default function WeatherData(props){
     let cityData =props.cityd;
     return(
         
-        <div className="weather">
-            <form>
-                <div className="row">
-                    <div className="col-9">
-                        <input type="search" className="form-control"/>
-                    </div>
-                    <div className="col-3">
-                        <input type="submit" value="Search" className="btn btn-primary"/>
-                    </div>
-                </div>
-                </form>
+        <div className="weatherdata">
+            
             <h1>{cityData.cityName}</h1>
             <ul>
                 <li><Dateformating currentd={cityData.currentDay} /> </li>

@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function Weather(props){
  const [cityData,setCityData] =useState({ firstload: false});
- 
+ const [city, setCity] =useState(props.defcity);
 
     function handleResponse(response){
         setCityData({
@@ -26,19 +26,47 @@ export default function Weather(props){
         
     }
  
+function handleSubmit(event){
+  event.preventDefault();
+  runApi();
+}
+
+function handleChange(event){
+  setCity(event.target.value);
+
+}
+
+function runApi(){
+  const keyApi = "35af20a51228d76bt18bb4ac458c490o";
+     
+  let urlApi  =     
+  `https://api.shecodes.io/weather/v1/current?query=${city}
+  &key=${keyApi}&units=metric`;
+  axios.get(urlApi).then(handleResponse);
+}
 
     if (!cityData.firstload){
-    const keyApi = "35af20a51228d76bt18bb4ac458c490o";
-    let cityName =props.defcity;
-    let urlApi  =     
-    `https://api.shecodes.io/weather/v1/current?query=${cityName}
-    &key=${keyApi}&units=metric`;
-    axios.get(urlApi).then(handleResponse);
+    runApi();
     return(
       <h2>  Load...</h2>
     )
 
-} else {return(
-    <Wdata cityd={cityData} />)
-}
+} else {
+    return(
+      <div className="weather">
+      <form onSubmit={handleSubmit}>
+                <div className="row">
+                    <div className="col-9">
+                        <input type="search" 
+                        className="form-control"
+                        onChange={handleChange}/>
+                    </div>
+                    <div className="col-3">
+                        <input type="submit" value="Search" className="btn btn-primary"/>
+                    </div>
+                </div>
+                </form>
+    <Wdata cityd={cityData} />
+    </div>)
+    }
 }
