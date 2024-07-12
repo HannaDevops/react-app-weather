@@ -1,7 +1,11 @@
 import React from "react";
 import axios from "axios";
 import './weather.css';
+import Wdata from './Wdata';
 import { useState } from "react";
+
+
+
 
 export default function Weather(props){
  const [cityData,setCityData] =useState({ firstload: false});
@@ -11,7 +15,7 @@ export default function Weather(props){
         setCityData({
           firstload: true,
           cityName:  response.data.city,
-          day: response.data.time,
+          currentDay: new Date(response.data.time * 1000),
           temper: response.data.temperature.current,
           Cloudy: response.data.condition.description,
           Precipitation: response.data.temperature.feels_like,
@@ -34,36 +38,7 @@ export default function Weather(props){
       <h2>  Load...</h2>
     )
 
-} else {
-    return(
-        <div className="weather">
-            <form>
-                <div className="row">
-                    <div className="col-9">
-                        <input type="search" className="form-control"/>
-                    </div>
-                    <div className="col-3">
-                        <input type="submit" value="Search" className="btn btn-primary"/>
-                    </div>
-                </div>
-                </form>
-            <h1>{cityData.cityName}</h1>
-            <ul>
-                <li>{cityData.day}</li>
-                <li>{cityData.Cloudy}</li>
-            </ul>
-             
-            <div className="row">
-                <div className="col-6">
-                    <img src={cityData.imageW}></img>
-                    {Math.round(cityData.temper)} C
-                </div>
-                <div className="col-6">
-                    <li>Precipitation: {cityData.Precipitation}</li>
-                    <li>Humidity: {cityData.Humidity}</li>
-                    <li>Wind: {cityData.Wind}</li>
-                </div>
-            </div> 
-        </div> );
+} else {return(
+    <Wdata cityd={cityData} />)
 }
 }
