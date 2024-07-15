@@ -13,12 +13,15 @@
   }
      
       
-      .weather h1 {
-        font-size: 24px;
-        font-weight: 100;
-         
-        line-height: 29px;
-      }
+  .wdata .temper {
+    font-weight: bold;
+    color: rgb(33, 33, 33);
+    font-size: 40px;
+    line-height: 64px;
+    margin-left: 5px;
+    font-weight: 400;
+    margin-left: 10px;
+  }
       
       .weather ul {
          

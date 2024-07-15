@@ -1,12 +1,14 @@
 import React from "react";
 import Dateformating from './Dateformating';
+
+
  
 
 export default function WeatherData(props){
     let cityData =props.cityd;
     return(
         
-        <div className="weatherdata">
+        <div className="wdata">
             
             <h1>{cityData.cityName}</h1>
             <ul>
@@ -16,13 +18,15 @@ export default function WeatherData(props){
              
             <div className="row">
                 <div className="col-6">
-                    <img src={cityData.imageW}></img>
-                    {Math.round(cityData.temper)} C
+                    <div className="d-flex">
+                    <div><img src={cityData.imageW}></img></div>
+                    <div className="temper">{Math.round(cityData.temper)} °C</div>
+                    </div>
                 </div>
                 <div className="col-6">
-                    <li>Precipitation: {cityData.Precipitation}</li>
-                    <li>Humidity: {cityData.Humidity}</li>
-                    <li>Wind: {cityData.Wind}</li>
+                    <li>Precipitation: {cityData.Precipitation} %</li>
+                    <li>Humidity: {cityData.Humidity} %</li>
+                    <li>Wind: {cityData.Wind} km/h</li>
                 </div>
             </div> 
         </div>

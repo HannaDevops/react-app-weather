@@ -4,7 +4,6 @@ export default function Dateformating(props){
 let date = props.currentd.toDateString();
  
     return(
-        
-<div>{date}</div>
+        <div>{date}</div>
     )
 }

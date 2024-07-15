@@ -18,9 +18,9 @@ export default function Weather(props){
           currentDay: new Date(response.data.time * 1000),
           temper: response.data.temperature.current,
           Cloudy: response.data.condition.description,
-          Precipitation: response.data.temperature.feels_like,
+          Precipitation: Math.round(response.data.temperature.feels_like),
           Humidity: response.data.temperature.humidity,
-          Wind:response.data.wind.speed,
+          Wind: Math.round(response.data.wind.speed),
           imageW:response.data.condition.icon_url
         });
         
