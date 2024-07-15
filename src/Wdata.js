@@ -19,7 +19,7 @@ export default function WeatherData(props){
             <div className="row">
                 <div className="col-6">
                     <div className="d-flex">
-                    <div><img src={cityData.imageW}></img></div>
+                    <div><img src={cityData.imageW} alt="whatweather"></img></div>
                     <div className="temper">{Math.round(cityData.temper)} °C</div>
                     </div>
                 </div>
