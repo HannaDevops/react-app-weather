@@ -12,7 +12,6 @@ export default function Forecastdate(props){
     }, [props.city]);
      
     function handleResponse(response){
-        
         setFData({
             firstload: true,
             daily:response.data.daily
@@ -46,5 +45,5 @@ if (!fData.firstload){
         </div>
         
     )
-}
+    }
 }
