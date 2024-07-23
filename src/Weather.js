@@ -5,11 +5,9 @@ import Wdata from './Wdata';
 import { useState } from "react";
 
 
-
-
 export default function Weather(props){
- const [cityData,setCityData] =useState({ firstload: false});
- const [city, setCity] =useState(props.defcity);
+ const [cityData,setCityData] = useState({ firstload: false});
+ const [city, setCity] = useState(props.defcity);
 
     function handleResponse(response){
         setCityData({
@@ -40,8 +38,7 @@ function runApi(){
   const keyApi = "35af20a51228d76bt18bb4ac458c490o";
      
   let urlApi  =     
-  `https://api.shecodes.io/weather/v1/current?query=${city}
-  &key=${keyApi}&units=metric`;
+  `https://api.shecodes.io/weather/v1/current?query=${city}&key=${keyApi}&units=metric`;
   axios.get(urlApi).then(handleResponse);
 }
 
@@ -54,7 +51,7 @@ function runApi(){
 } else {
     return(
       <div className="weather">
-      <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-9">
                         <input type="search" 
@@ -65,8 +62,8 @@ function runApi(){
                         <input type="submit" value="Search" className="btn btn-primary"/>
                     </div>
                 </div>
-                </form>
-    <Wdata cityd={cityData} />
+        </form>
+      <Wdata cityd={cityData} />
     </div>)
     }
 }

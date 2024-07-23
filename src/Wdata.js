@@ -1,5 +1,6 @@
 import React from "react";
 import Dateformating from './Dateformating';
+import Forecastdata from './Forecastdata';
 
 
  
@@ -12,14 +13,14 @@ export default function WeatherData(props){
             
             <h1>{cityData.cityName}</h1>
             <ul>
-                <li><Dateformating currentd={cityData.currentDay} /> </li>
+                <li><Dateformating currentd={cityData.currentDay} format={1} /> </li>
                 <li>{cityData.Cloudy}</li>
             </ul>
              
             <div className="row">
                 <div className="col-6">
                     <div className="d-flex">
-                    <div><img src={cityData.imageW} alt="whatweather"></img></div>
+                    <div><img src={cityData.imageW} alt="whatweather" width='120em'></img></div>
                     <div className="temper">{Math.round(cityData.temper)} °C</div>
                     </div>
                 </div>
@@ -29,6 +30,7 @@ export default function WeatherData(props){
                     <li>Wind: {cityData.Wind} km/h</li>
                 </div>
             </div> 
+            <Forecastdata city={cityData.cityName}/>
         </div>
 
     )
