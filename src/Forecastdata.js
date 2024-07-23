@@ -1,11 +1,15 @@
 import React from 'react';
 import axios from 'axios';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Forecastday from './Forecastday';
 
 export default function Forecastdate(props){
-    const [city, setCity] = useState(props.city);
-    const [fData,setFData] =useState({ firstload: false});
+    let city = props.city;
+    let [fData,setFData] =useState({ firstload: false});
+
+    useEffect(() => {
+        setFData({ firstload: false});
+    }, [props.city]);
      
     function handleResponse(response){
         
