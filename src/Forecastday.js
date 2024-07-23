@@ -3,13 +3,14 @@ import Dateformating from './Dateformating';
  
 
 export default function Forecastday(props){
-    let fData = props.data.daily[0];
+    let fData = props.data;
     let max = Math.round( fData.temperature.maximum );
     let min = Math.round( fData.temperature.minimum );
     let day = new Date(fData.time *1000);
     let icon =fData.condition.icon_url;
     return(
-        <div className="card text-center">
+         
+        <div className="forecastday card text-center">
             <div className="card-header">
                 <Dateformating   currentd={day} format = {2} />
             </div>
@@ -20,5 +21,6 @@ export default function Forecastday(props){
                 {max} {min}
             </div>
         </div>
+        
     )
 }

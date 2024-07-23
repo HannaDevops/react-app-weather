@@ -8,6 +8,7 @@ export default function Forecastdate(props){
     const [fData,setFData] =useState({ firstload: false});
      
     function handleResponse(response){
+        
         setFData({
             firstload: true,
             daily:response.data.daily
@@ -30,8 +31,16 @@ if (!fData.firstload){
 
     } else {
        return(
-       <Forecastday data={fData} />
+       <div className="forecastdata card-group">
+            {fData.daily.map(function(dailyforcast,index) {
+                return(
+                  <div className="" key={index}>
+                    <Forecastday data={dailyforcast} />
+                    </div>
+                );
+            })} 
+        </div>
+        
     )
-
 }
 }
